@@ -7,6 +7,14 @@ const minutesField = document.querySelector('.minutes')
 let activeStopFlagBtn = false;
 let miliSeconds = null;
 let seconds = null;
+let minutes = null;
+
+const clearField = (field) => {
+  const zero = 0;
+  const name = field;
+  name = 0;
+  name.textContent = (name)
+}
 
 const changeButton = () => {
 
@@ -31,23 +39,36 @@ const startCount = () => {
   if(activeStopFlagBtn){
     ++miliSeconds;
     miliSecondsField.textContent = miliSeconds < 10 ? `0${miliSeconds}` : miliSeconds;
-    if(miliSeconds === 59){
+    if(miliSeconds === 99){
       ++seconds;
       miliSeconds = 0;
       secondsField.textContent = seconds < 10 ? `0${seconds}` : seconds;
     }
+    if(seconds === 59){
+      seconds = 0;
+      secondsField.textContent = seconds < 10 ? `0${seconds}` : seconds;
+      ++minutes;
+      minutesField.textContent = (minutes < 10) ? `0${minutes}` : minutes;
+    }
     console.log(miliSeconds);
-    timeoutIndex = setTimeout(startCount, 1000);
+    timeoutIndex = setTimeout(startCount, 10);
   }
 
 
 }
 
+const resetTime = () => {
+  activeStopFlagBtn = false;
+  miliSeconds = 0;
+  seconds = 0;
+  minutes = 0;
+  miliSecondsField.textContent = (miliSeconds < 10) ? `0${miliSeconds}` : miliSeconds;
+  secondsField.textContent = (seconds < 10) ? `0${seconds}` : seconds;
+  minutesField.textContent = (minutes < 10) ? `0${minutes}` : minutes;
+  console.log('Reset values');
+
+}
+
 btnStart.addEventListener("click", changeButton);
 btnStart.addEventListener("click", startCount);
-
-
-btnReset.addEventListener('click', function(){
-  console.log(`Wywołano funkcję timeoutIndex`);
-  activeStopFlagBtn = false;
-})
+btnReset.addEventListener("click", resetTime);

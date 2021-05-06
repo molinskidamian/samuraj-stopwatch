@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Graduate&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&display=swap');
 
 
 *, *:before, *:after{
@@ -145,7 +145,7 @@ h2 {
 }
 
 .wrapper main p >label {
-  font-size: 4rem;
+font-size: 3rem;
   /* font-family: 'Montserrat', sans-serif; */
   font-family: 'Graduate', cursive;
   /* font-family: 'Press Start 2P', cursive; */
